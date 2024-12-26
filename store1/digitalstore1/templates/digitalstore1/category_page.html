@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load digitalstore_tags %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block slider %}
+{% endblock slider %}
+
+
+{% block main %}
+<main>
+    <div class="content">
+        <div class="container">
+            <h2 class="content__title">{{ category.title }}</h2>
+
+            <div class="list_filter">
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="list_label">
+                        <div class="brand">
+                            <button class="cat_name" type="button"><span>{% if brand %}{{ brand }}{% else %}Бренд{% endif %}</span> <img
+                                    src="{% static 'digitalstore1/js/image/icons/errow_down.svg' %}"
+                                    alt=""></button>
+                            <ul class="list_cat">
+                                {% for brand in brands %}
+                                <li><a class="category" href="?{% query_params brand=brand.title page=1 %}">{{ brand }}</a></li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+
+
+                        <div class="brand brand1">
+                            <button class="cat_name" type="button"><span>{% if color %}{{ color }}{% else %}Цвет{% endif %}</span> <img
+                                    src="{% static 'digitalstore1/js/image/icons/errow_down.svg' %}"
+                                    alt=""></button>
+                            <ul class="list_cat">
+                                {% for color in colors %}
+                                <li><a class="category" href="?{% query_params color=color page=1 %}">{{ color }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+
+                        <div class="brand brand2">
+                            <button class="cat_name" type="button"><span>{% if memory %}{{ memory }}{% else %}Память{% endif %}</span> <img
+                                    src="{% static 'digitalstore1/js/image/icons/errow_down.svg' %}"
+                                    alt=""></button>
+                            <ul class="list_cat">
+                                {% for memory in memories %}
+                                <li><a class="category" href="?{% query_params memory=memory page=1 %}">{{ memory }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+
+                        <div class="brand brand3">
+                            <button class="cat_name" type="button"><span>{% if price_from %}{{ price_from }}{% else %}Цена от{% endif %}</span> <img
+                                    src="{% static 'digitalstore1/js/image/icons/errow_down.svg' %}"
+                                    alt=""></button>
+                            <ul class="list_cat">
+                                {% for price in prices %}
+                                <li><a class="category" href="?{% query_params from=price page=1 %}">{{ price }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="brand brand3">
+                            <button class="cat_name" type="button"><span>{% if price_till %}{{ price_till }}{% else %}Цена до{% endif %}</span> <img
+                                    src="{% static 'digitalstore1/js/image/icons/errow_down.svg' %}"
+                                    alt=""></button>
+                            <ul class="list_cat">
+                                {% for price in prices %}
+                                <li><a class="category" href="?{% query_params till=price page=1 %}">{{ price }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="container">
+
+            <div class="content__cards list_cards">
+
+                {% for product in products %}
+                {% include 'digitalstore1/components/_card.html' %}
+                {% endfor %}
+
+
+            </div>
+
+            <div class="pagination">
+                <div class="list_pag">
+                    {% if page_obj.has_previous and page_obj.paginator.num_pages > 2 %}
+                    <a href="?{% query_params page=page_obj.previous_page_number %}" class="next_last"><img src="{% static 'digitalstore1/js/image/icons/strelka_levo.svg' %}" alt=""></a>
+                    {% endif %}
+
+                    {% for page in page_obj.paginator.page_range %}
+                    {% if page == page.obj.number %}
+                    <a href="" class="pag">{{ page }}</a>
+                    {% elif page > page_obj.number|add:-3 and page < page_obj.number|add:+3 %}
+                    <a href="?{% query_params page=page %}" class="pag">{{ page }}</a>
+                    {% endif %}
+
+                    {% endfor %}
+                    {% if page_obj.has_next and page_obj.paginator.num_pages > 2 %}
+                    <a href="?{% query_params page=page_obj.next_page_number %}" class="next_last"><img src="{% static 'digitalstore1/js/image/icons/strelka_pravo.svg' %}" alt=""></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+{% endblock main %}

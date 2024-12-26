@@ -1,0 +1,30 @@
+{% load digitalstore_tags %}
+{% load static %}
+<div class="nav__menu">
+    <ul class="nav__category">
+
+        <li class="dropdown">
+            <a href="" class="category_burger"><img src="{% static 'digitalstore1/js/image/icons/burger.svg' %}" alt="">
+                <p class="cat_text">Каталог</p>
+            </a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </li>
+
+        {% get_categories as categories %}
+        {% for category in categories %}
+        <li><a href="{{ category.get_absolute_url }}" class="category"><img src="{{ category.get_icon }}" alt="">
+            <p class="cat_text">{{ category.title }}</p>
+        </a></li>
+        {% endfor %}
+
+        <li><a href="{% url 'sales' %}" class="category"><img src="{% static 'digitalstore1/js/image/icons/Vector2.svg' %}" alt="">
+            <p class="cat_text">Акции</p>
+        </a></li>
+    </ul>
+
+
+</div>

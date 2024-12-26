@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load digitalstore_tags %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<main>
+    <div class="content">
+        <div class="container">
+            <h2 class="content__title">Хиты продаж</h2>
+            <div class="content__cards">
+                {% for category in categories %}
+                    {% for brand in category.brand.all %}
+                        {% for product in brand.products.all %}
+                            {% include 'digitalstore1/components/_card.html' %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <h2 class="content__title">Новинки</h2>
+            <div class="content__cards">
+
+                {% for category in categories %}
+                    {% for brand in category.brand.all %}
+                        {% for product in brand.products.all|slice:"::-1" %}
+                            {% include 'digitalstore1/components/_card.html' %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="content">
+        <div class="container">
+            <h2 class="content__title">Действующие Акции</h2>
+            <div class="content__images">
+
+                <img src="{% static 'digitalstore1/js/image/advertising/Rectangle 357.png' %}" alt="">
+
+
+                <img src="{% static 'digitalstore1/js/image/advertising/Rectangle 358.png' %}" alt="">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    {% include 'digitalstore1/components/_about_us.html' %}
+</main>
+{% endblock main %}

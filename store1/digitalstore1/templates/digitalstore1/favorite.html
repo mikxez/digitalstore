@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block slider %}
+{% endblock slider %}
+
+{% block main %}
+
+<div class="content">
+    <div class="container">
+        <h2 class="content__title">{{ title }}</h2>
+        {% if products %}
+        <div class="content__cards">
+
+            {% for product in products %}
+            {% include 'digitalstore1/components/_card.html' %}
+            {% endfor %}
+
+
+        </div>
+
+        {% else %}
+        <h3 class="text-center">У вас нет избранных товаров</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock main %}

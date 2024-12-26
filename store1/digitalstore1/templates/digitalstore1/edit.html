@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block slider %}
+{% endblock slider %}
+
+{% block main %}
+
+<div class="d-flex justify-content-between">
+
+    <div class="col-5">
+        <div class="card p-3">
+            <h5 class="text-center login_title">Изменения Аккаунта</h5>
+            <div class="edit">
+                <form action="{% url 'edit_account' %}" method="post" class="change_ac">
+                    {% csrf_token %}
+                    <div class="input__login">
+                        {{ account_form.first_name }}
+                    </div>
+                    <div class="input__login">
+                        {{ account_form.last_name }}
+                    </div>
+                    <div class="input__login">
+                        {{ account_form.email }}
+                    </div>
+
+                    <button class="btn_order" type="submit">Изменить Аккаунт</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-5">
+        <div class="card p-3">
+            <h5 class="text-center login_title">Изменения Профиля</h5>
+            <div class="edit">
+            <form action="{% url 'edit_profile' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input__login">
+                    {{ profile_form.phone }}
+                </div>
+                <div class="input__login">
+                    {{ profile_form.city }}
+                </div>
+                <div class="input__login">
+                    {{ profile_form.street }}
+                </div>
+                <div class="input__login">
+                    {{ profile_form.home }}
+                </div>
+                <div class="input__login">
+                    {{ profile_form.flat }}
+                </div>
+
+                <button class="btn_order" type="submit">Изменить Профиль</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock main %}

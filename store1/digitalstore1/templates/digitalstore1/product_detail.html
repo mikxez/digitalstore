@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block slider %}
+<div class="content">
+    <div class="container">
+        {% include 'digitalstore1/components/_product_slider.html' %}
+
+        {% include 'digitalstore1/components/_product_parameters.html' %}
+
+
+    </div>
+</div>
+{% endblock slider %}
+
+{% block main %}
+<div class="same_products">
+    <div class="content">
+        <div class="container">
+            <div class="same_product_text">
+                <h2 class="content__title">Похожие товары</h2>
+                <a href="{% url 'more' %}" class="content__title"><span>Больше Товаров</span> <img src="{%  static 'digitalstore1/js/image/icons/errow_right.svg' %}"
+                                                                                    alt=""></a>
+            </div>
+            <div class="content__cards">
+                {% for product in products %}
+                {% include 'digitalstore1/components/_card.html' %}
+                {% endfor %}
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+{% endblock main %}
