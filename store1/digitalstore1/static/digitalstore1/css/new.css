@@ -1,0 +1,111 @@
+.checkout-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.first_section{
+    display: grid;
+    grid-template-columns: repeat(2,4fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.first__section-bottom{
+    display: flex;
+    justify-content: center;
+}
+
+.second__section{
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,2fr);
+    gap: 20px;
+}
+.third__section{
+    display: flex;
+    justify-content: space-between;
+}
+.login-btn{
+  display: inline-block;
+  padding: 15px 15px;
+  background: #0F2859;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Regul';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 30px;
+  color: #CFDDF6;
+  margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #082040;
+    font-family: 'Regul';
+    font-style: normal;
+    font-weight: 275;
+    font-size: 20px;
+    line-height: 24px;
+    color: #7787A6;
+    padding: 10px 0 10px 20px;
+}
+.form-group input {
+    border-color: rgb(50, 54, 56);
+    color: rgb(141, 134, 125);
+}
+.form-group select {
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #082040;
+    font-family: 'Regul';
+    font-style: normal;
+    font-weight: 275;
+    font-size: 20px;
+    line-height: 24px;
+    color: #7787A6;
+    padding: 10px 0 10px 20px;
+}
+.form-group select {
+    border-color: rgb(50, 54, 56);
+    color: rgb(141, 134, 125);
+}
+.form-group textarea {
+    width: 620px;
+    border-radius: 5px;
+    border: 1px solid #082040;
+    font-family: 'Regul';
+    font-style: normal;
+    font-weight: 275;
+    font-size: 20px;
+    line-height: 24px;
+    color: #7787A6;
+    padding: 10px 0 10px 20px;
+}
+.form-group textarea {
+    border-color: rgb(50, 54, 56);
+    color: rgb(141, 134, 125);
+}
+
+.third__section{
+      padding:50px;
+      border: 1px solid rgba(119, 135, 166, 0.3);
+      border-radius: 5px;
+      max-width: 750px;
+      display: flex;
+      flex-direction: column;
+}
+.checkout_cart {
+    border-color: rgb(141, 134, 125);
+}
+.checkout_cart {
+    display: flex;
+    align-items: center;
+    border: 1px solid #7787A6;
+    border-radius: 10px;
+}
+.checkout_cart_img{
+    padding: 4px;
+    border-radius: 10px;
+}
